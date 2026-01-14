@@ -1,196 +1,195 @@
 // ==========================================
 // 1. PENGATURAN EMAIL (Wajib Diisi Guru)
 // ==========================================
-// Masukkan Link Formspree Bapak di antara tanda kutip di bawah ini
 const FORMSPREE_URL = "MASUKKAN_LINK_FORMSPREE_DISINI"; 
 
 // ==========================================
-// 2. DATABASE 25 SOAL HOTS (BILANGAN BULAT CAMPURAN)
+// 2. DATABASE 25 SOAL (CAMPURAN PECAHAN, DESIMAL, PERSEN)
 // ==========================================
 const questions = [
-    // --- LEVEL 1: KONSEP DASAR & TANDA NEGATIF ---
+    // --- LEVEL 1: PECAHAN & DESIMAL DASAR ---
     {
-        topic: "Operasi Tanda",
-        question: "Hasil dari -12 + (-8) - (-5) adalah...",
-        options: ["-25", "-15", "15", "-5"],
-        correct: 1,
-        explanation: "-12 - 8 + 5 = -20 + 5 = -15."
-    },
-    {
-        topic: "Prioritas Hitung",
-        question: "Hitunglah: 20 + (-5) x 4 =",
-        options: ["60", "100", "0", "-60"],
-        correct: 2,
-        explanation: "Kali dulu: (-5) x 4 = -20. Lalu 20 + (-20) = 0."
-    },
-    {
-        topic: "Pembagian Negatif",
-        question: "Hasil dari -48 : (-6 + 2) adalah...",
-        options: ["12", "-12", "8", "-8"],
+        topic: "Pecahan ke Desimal",
+        question: "0,75 + 1/2 - 0,25 = ...",
+        options: ["1,0", "0,5", "1,5", "0,75"],
         correct: 0,
-        explanation: "Kurung dulu: (-6 + 2) = -4. Lalu -48 : (-4) = 12."
+        explanation: "1/2 = 0,5. Jadi: 0,75 + 0,5 - 0,25 = 1,25 - 0,25 = 1,0."
     },
     {
-        topic: "Operasi Campuran",
-        question: "(-20) + 8 x 5 - 18 : (-3) =",
-        options: ["14", "26", "-6", "24"],
-        correct: 1,
-        explanation: "Kali: 8x5=40. Bagi: 18:(-3)=-6. Jadi: -20 + 40 - (-6) = 20 + 6 = 26."
+        topic: "Persen & Pecahan",
+        question: "50% - 1/4 + 0,1 = ...",
+        options: ["0,35", "0,25", "0,45", "0,15"],
+        correct: 0,
+        explanation: "50% = 0,5. 1/4 = 0,25. Jadi: 0,5 - 0,25 + 0,1 = 0,25 + 0,1 = 0,35."
     },
     {
-        topic: "Distributif",
-        question: "(15 x 32) - (15 x 28) = ...",
-        options: ["150", "60", "45", "90"],
+        topic: "Perkalian Campuran",
+        question: "2/5 x 0,5 = ...",
+        options: ["0,2", "0,5", "0,1", "1,0"],
+        correct: 0,
+        explanation: "2/5 = 0,4. Jadi 0,4 x 0,5 = 0,20 atau 0,2."
+    },
+    {
+        topic: "Pembagian Desimal",
+        question: "1,2 : 1/2 = ...",
+        options: ["0,6", "2,4", "1,4", "2,2"],
         correct: 1,
-        explanation: "Pakai sifat distributif: 15 x (32 - 28) = 15 x 4 = 60."
+        explanation: "Membagi dengan 1/2 sama dengan dikali 2. 1,2 x 2 = 2,4."
+    },
+    {
+        topic: "Operasi Tanda Negatif",
+        question: "-0,5 + 3/4 = ...",
+        options: ["-0,25", "0,25", "0,5", "-0,5"],
+        correct: 1,
+        explanation: "-0,5 + 0,75 = 0,25."
     },
 
-    // --- LEVEL 2: SOAL CERITA SUHU & KEDALAMAN ---
+    // --- LEVEL 2: OPERASI CAMPURAN (KABATAKU) ---
     {
-        topic: "Suhu Kulkas",
-        question: "Suhu daging -4°C. Saat dimasak, suhu naik 5°C setiap 2 menit. Berapa suhu daging setelah 10 menit?",
-        options: ["20°C", "21°C", "25°C", "19°C"],
+        topic: "Prioritas Perkalian",
+        question: "0,5 + 2 x 1/4 = ...",
+        options: ["0,625", "1,0", "1,5", "2,0"],
         correct: 1,
-        explanation: "Naik 5x (10 menit : 2). Kenaikan = 5 x 5 = 25°C. Suhu akhir = -4 + 25 = 21°C."
+        explanation: "Kali dulu: 2 x 0,25 = 0,5. Lalu 0,5 + 0,5 = 1,0."
     },
     {
-        topic: "Suhu Kota",
-        question: "Suhu Kota A -5°C, Kota B 20°C. Kota C lebih dingin 4°C dari Kota A. Selisih suhu Kota B dan C adalah...",
-        options: ["29°C", "25°C", "15°C", "30°C"],
-        correct: 0,
-        explanation: "Suhu C = -5 - 4 = -9°C. Selisih B dan C = 20 - (-9) = 29°C."
-    },
-    {
-        topic: "Menyelam",
-        question: "Penyelam berada di kedalaman 15 meter. Ia turun lagi 4 meter, lalu naik 8 meter. Posisi penyelam sekarang di kedalaman...",
-        options: ["11 meter", "19 meter", "3 meter", "7 meter"],
-        correct: 0,
-        explanation: "Awal -15. Turun (-4) jadi -19. Naik (+8) jadi -11. Kedalaman 11 meter."
-    },
-    {
-        topic: "Perubahan Suhu",
-        question: "Suhu segelas teh 45°C. Diberi es batu suhu turun 12°C. Dibiarkan lama suhu naik 3°C. Suhu sekarang?",
-        options: ["30°C", "33°C", "36°C", "39°C"],
-        correct: 2,
-        explanation: "45 - 12 + 3 = 33 + 3 = 36°C."
-    },
-    {
-        topic: "Elevator",
-        question: "Lift dari lantai 8, turun 5 lantai, lalu naik 10 lantai. Sekarang lift ada di lantai...",
-        options: ["12", "13", "10", "3"],
+        topic: "Persen Perkalian",
+        question: "25% x 80 - 0,5 = ...",
+        options: ["15,5", "19,5", "20,5", "20"],
         correct: 1,
-        explanation: "8 - 5 + 10 = 3 + 10 = 13."
+        explanation: "25% x 80 = 20. Lalu 20 - 0,5 = 19,5."
+    },
+    {
+        topic: "Pecahan Campuran",
+        question: "1 ½ + 0,5 x 4 = ...",
+        options: ["8", "3,5", "4,5", "6"],
+        correct: 1,
+        explanation: "Kali dulu: 0,5 x 4 = 2. Lalu 1,5 + 2 = 3,5."
+    },
+    {
+        topic: "Pembagian & Persen",
+        question: "40% : 0,1 + 2 = ...",
+        options: ["6", "4,2", "60", "2,4"],
+        correct: 0,
+        explanation: "0,4 : 0,1 = 4. Lalu 4 + 2 = 6."
+    },
+    {
+        topic: "Kombinasi Tanda",
+        question: "-1/2 + 0,2 x (-5) = ...",
+        options: ["-1,5", "-0,5", "-1,0", "0,5"],
+        correct: 0,
+        explanation: "Kali dulu: 0,2 x -5 = -1. Lalu -0,5 + (-1) = -1,5."
     },
 
-    // --- LEVEL 3: LOGIKA SKOR & KOMPETISI ---
+    // --- LEVEL 3: PECAHAN DESIMAL KOMPLEKS ---
     {
-        topic: "Sistem Nilai",
-        question: "Benar(+5), Salah(-2), Kosong(0). Dari 20 soal, Ali Benar 15 dan Salah 3. Sisanya kosong. Skor Ali?",
-        options: ["75", "69", "71", "65"],
-        correct: 1,
-        explanation: "Benar: 15x5=75. Salah: 3x(-2)=-6. Kosong: 2x0=0. Total = 75 - 6 = 69."
-    },
-    {
-        topic: "Liga Sepakbola",
-        question: "Menang(+3), Kalah(-1), Seri(1). Tim Garuda main 5 kali: Menang 3x, Kalah 1x, Seri 1x. Poinnya?",
-        options: ["9", "8", "7", "10"],
+        topic: "Tiga Bilangan",
+        question: "3/4 + 0,6 - 25% = ...",
+        options: ["1,1", "1,2", "0,9", "1,15"],
         correct: 0,
-        explanation: "(3x3) + (1x-1) + (1x1) = 9 - 1 + 1 = 9."
+        explanation: "0,75 + 0,6 - 0,25 = 1,35 - 0,25 = 1,1."
     },
-    {
-        topic: "Lomba Matematika",
-        question: "Skor awal 100. Benar dapat tambahan 10, Salah dikurangi 5. Budi menjawab 4 Benar dan 2 Salah. Skor akhir?",
-        options: ["130", "140", "120", "150"],
-        correct: 0,
-        explanation: "Awal 100. Benar: 4x10=40. Salah: 2x(-5)=-10. Akhir = 100 + 40 - 10 = 130."
-    },
-    {
-        topic: "Selisih Skor",
-        question: "Skor Ani 125. Skor Budi -15. Berapa selisih skor mereka?",
-        options: ["110", "130", "140", "100"],
-        correct: 2,
-        explanation: "Selisih = Nilai Besar - Nilai Kecil. 125 - (-15) = 125 + 15 = 140."
-    },
-    {
-        topic: "Analisis Jawaban",
-        question: "Total 50 soal. Skor total 100. Aturan: Benar(4), Salah(-2). Jika Budi menjawab Benar 30 soal, berapa soal yang dia jawab SALAH? (Tidak ada kosong)",
-        options: ["10", "15", "20", "5"],
-        correct: 0,
-        explanation: "Poin Benar = 30x4 = 120. Skor akhir 100. Berarti poin berkurang 20. Karena Salah(-2), maka Salah = 20:2 = 10 soal."
-    },
-
-    // --- LEVEL 4: LOGIKA KEUANGAN & BILANGAN ---
-    {
-        topic: "Hutang Piutang",
-        question: "Pak Budi punya hutang Rp500rb (-500). Ia bayar Rp200rb, lalu hutang lagi Rp100rb. Posisi uang Pak Budi?",
-        options: ["-200", "-300", "-400", "-600"],
-        correct: 2,
-        explanation: "-500 + 200 - 100 = -300 - 100 = -400 (Hutang 400rb)."
-    },
-    {
-        topic: "Tebak Angka",
-        question: "Aku bilangan bulat. Jika dikali -4 lalu ditambah 8 hasilnya -12. Bilangan berapakah aku?",
-        options: ["5", "-5", "4", "3"],
-        correct: 0,
-        explanation: "Mundur: (-12 - 8) : -4 = -20 : -4 = 5."
-    },
-    {
-        topic: "Pedagang Jeruk",
-        question: "Beli 5 keranjang jeruk @ Rp100rb. Dijual rugi Rp10rb per keranjang. Total uang yang didapat pedagang?",
-        options: ["Rp450rb", "Rp400rb", "Rp550rb", "Rp500rb"],
-        correct: 0,
-        explanation: "Harga jual per keranjang = 100rb - 10rb = 90rb. Total = 5 x 90rb = 450rb."
-    },
-    {
-        topic: "Suhu Ekstrem",
-        question: "Suhu udara siang 30°C. Malam hari turun drastis menjadi -5°C. Besar perubahan suhu tersebut adalah...",
-        options: ["25°C", "30°C", "35°C", "5°C"],
-        correct: 2,
-        explanation: "Perubahan = Jarak dari 30 ke -5. 30 - (-5) = 35°C."
-    },
-    {
-        topic: "Permainan Kelereng",
-        question: "Awal punya 50. Kalah 20 (-20), Menang 15 (+15), Kalah lagi 10 (-10). Sisa kelereng?",
-        options: ["35", "45", "25", "55"],
-        correct: 0,
-        explanation: "50 - 20 + 15 - 10 = 30 + 15 - 10 = 45 - 10 = 35."
-    },
-
-    // --- LEVEL 5: OPERASI CAMPURAN KOMPLEKS (HOTS) ---
     {
         topic: "Operasi Kurung",
-        question: "Hasil dari 100 : (-20 + 15) x (-4) adalah...",
-        options: ["80", "-80", "20", "-20"],
+        question: "(1 - 0,2) : 1/5 = ...",
+        options: ["4", "0,16", "5", "0,8"],
         correct: 0,
-        explanation: "Kurung: (-20+15) = -5. Bagi: 100 : -5 = -20. Kali: -20 x -4 = 80."
+        explanation: "Kurung: 0,8. Lalu 0,8 : 0,2 = 4."
     },
     {
-        topic: "Substitusi Aljabar",
-        question: "Jika a = -3, b = 2, c = -5. Nilai dari (a x b) - c adalah...",
-        options: ["-1", "-11", "1", "11"],
-        correct: 0,
-        explanation: "(-3 x 2) - (-5) = -6 + 5 = -1."
-    },
-    {
-        topic: "Pola Bilangan",
-        question: "Hitunglah: -1 + 2 - 3 + 4 - 5 + 6 ... - 19 + 20",
-        options: ["10", "-10", "20", "0"],
-        correct: 0,
-        explanation: "Setiap pasang (-1+2)=1. Ada 20 angka berarti 10 pasang. 10 x 1 = 10."
-    },
-    {
-        topic: "Kuadrat & Kubik",
-        question: "Hasil dari (-4)³ + (-2)² adalah...",
-        options: ["-60", "-68", "60", "68"],
-        correct: 0,
-        explanation: "(-4)³ = -64. (-2)² = 4. Jadi -64 + 4 = -60."
-    },
-    {
-        topic: "Logika Tangga",
-        question: "Anak tangga ke-5. Naik 3, Turun 6, Naik 2. Posisi sekarang di anak tangga ke...",
-        options: ["3", "4", "5", "6"],
+        topic: "Pecahan Campuran Kali",
+        question: "2 ¼ x 0,8 = ...",
+        options: ["1,6", "1,8", "2,0", "1,2"],
         correct: 1,
-        explanation: "5 + 3 - 6 + 2 = 8 - 6 + 2 = 2 + 2 = 4."
+        explanation: "2,25 x 0,8 = 1,8."
+    },
+    {
+        topic: "Pengurangan Persen",
+        question: "2 - 150% + 0,5 = ...",
+        options: ["0", "1,0", "1,5", "-0,5"],
+        correct: 1,
+        explanation: "150% = 1,5. Jadi 2 - 1,5 + 0,5 = 0,5 + 0,5 = 1,0."
+    },
+    {
+        topic: "Kombinasi Bagi",
+        question: "0,75 : 3/4 + 0,5 = ...",
+        options: ["1,0", "1,25", "1,5", "0,75"],
+        correct: 2,
+        explanation: "0,75 : 0,75 = 1. Lalu 1 + 0,5 = 1,5."
+    },
+
+    // --- LEVEL 4: LOGIKA & HITUNGAN CEPAT ---
+    {
+        topic: "Hitung Cepat",
+        question: "12,5% x 800 + 1/2 = ...",
+        options: ["100,5", "100", "50,5", "101"],
+        correct: 0,
+        explanation: "12,5% x 800 = 100. Lalu 100 + 0,5 = 100,5."
+    },
+    {
+        topic: "Pecahan Negatif",
+        question: "-2,5 - 1 ½ x 2 = ...",
+        options: ["-5,5", "-4,5", "-8", "-3"],
+        correct: 0,
+        explanation: "Kali dulu: 1,5 x 2 = 3. Jadi -2,5 - 3 = -5,5."
+    },
+    {
+        topic: "Rantai Desimal",
+        question: "0,1 x 0,1 + 0,99 = ...",
+        options: ["1,0", "0,1", "1,1", "1,01"],
+        correct: 0,
+        explanation: "0,01 + 0,99 = 1,0."
+    },
+    {
+        topic: "Pembagian Pecahan",
+        question: "5 : 1/3 - 10 = ...",
+        options: ["5", "-5", "15", "-8,3"],
+        correct: 0,
+        explanation: "5 : 1/3 = 15. Lalu 15 - 10 = 5."
+    },
+    {
+        topic: "Kombinasi Persen",
+        question: "(50% + 0,5) x 10 = ...",
+        options: ["10", "5,5", "1", "100"],
+        correct: 0,
+        explanation: "(0,5 + 0,5) x 10 = 1 x 10 = 10."
+    },
+
+    // --- LEVEL 5: CHALLENGE (HOTS NUMERIK) ---
+    {
+        topic: "Challenge 1",
+        question: "1 - 1/2 - 1/4 - 1/8 = ...",
+        options: ["0", "1/8", "1/16", "1/4"],
+        correct: 1,
+        explanation: "Samakan penyebut 8. 8/8 - 4/8 - 2/8 - 1/8 = 1/8."
+    },
+    {
+        topic: "Challenge 2",
+        question: "(-4)² x 0,5 - 10 = ...",
+        options: ["-2", "2", "6", "-6"],
+        correct: 0,
+        explanation: "16 x 0,5 = 8. Lalu 8 - 10 = -2."
+    },
+    {
+        topic: "Challenge 3",
+        question: "10 : 0,25 + (-30) = ...",
+        options: ["10", "70", "0", "-10"],
+        correct: 0,
+        explanation: "10 : 1/4 = 40. Lalu 40 - 30 = 10."
+    },
+    {
+        topic: "Challenge 4",
+        question: "3/5 + 60% x 2 - 1 = ...",
+        options: ["0,8", "1,2", "0,2", "1,6"],
+        correct: 0,
+        explanation: "0,6 + (0,6 x 2) - 1 = 0,6 + 1,2 - 1 = 1,8 - 1 = 0,8."
+    },
+    {
+        topic: "Challenge 5",
+        question: "Hasil dari (0,2)³ + 0,002 = ...",
+        options: ["0,01", "0,082", "0,008", "0,006"],
+        correct: 0,
+        explanation: "0,008 + 0,002 = 0,010 atau 0,01."
     }
 ];
 
@@ -388,7 +387,7 @@ function sendToTeacher(finalScore) {
     formData.append("kelas", studentClass);
     formData.append("nilai", finalScore);
     formData.append("benar", score);
-    formData.append("pesan", "Laporan Otomatis TKA Matematika (Bilangan Bulat)");
+    formData.append("pesan", "Laporan Otomatis TKA Matematika (Mixed Numbers)");
 
     fetch(FORMSPREE_URL, {
         method: "POST",

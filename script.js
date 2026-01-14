@@ -1,191 +1,201 @@
 // ==========================================
-// 1. DATABASE 25 SOAL HOTS (LENGKAP)
+// 1. PENGATURAN EMAIL (Wajib Diisi Guru)
+// ==========================================
+// Masukkan Link Formspree Bapak di antara tanda kutip di bawah ini
+const FORMSPREE_URL = "MASUKKAN_LINK_FORMSPREE_DISINI"; 
+
+// ==========================================
+// 2. DATABASE 25 SOAL HOTS (BILANGAN BULAT CAMPURAN)
 // ==========================================
 const questions = [
-    // --- BILANGAN BULAT ---
+    // --- LEVEL 1: KONSEP DASAR & TANDA NEGATIF ---
     {
-        topic: "Logika Suhu",
-        question: "Suhu di dalam kulkas -4°C. Saat mati lampu, suhu naik 3°C setiap 10 menit. Jika mati lampu berlangsung selama 30 menit, berapa suhu kulkas sekarang?",
-        options: ["1°C", "5°C", "9°C", "-1°C"],
+        topic: "Operasi Tanda",
+        question: "Hasil dari -12 + (-8) - (-5) adalah...",
+        options: ["-25", "-15", "15", "-5"],
         correct: 1,
-        explanation: "Analisis: Naik 3x (30 menit / 10). Total naik 9°C. Akhir = -4 + 9 = 5°C."
+        explanation: "-12 - 8 + 5 = -20 + 5 = -15."
     },
     {
-        topic: "Sistem Skor",
-        question: "Ujian: Benar(+4), Salah(-2), Kosong(-1). Budi jawab 40 soal (30 Benar, 10 Salah) dari total 50 soal. Berapa skornya?",
-        options: ["100", "110", "90", "95"],
+        topic: "Prioritas Hitung",
+        question: "Hitunglah: 20 + (-5) x 4 =",
+        options: ["60", "100", "0", "-60"],
         correct: 2,
-        explanation: "Benar: 30x4=120. Salah: 10x(-2)=-20. Kosong: 10x(-1)=-10. Total = 90."
+        explanation: "Kali dulu: (-5) x 4 = -20. Lalu 20 + (-20) = 0."
     },
     {
-        topic: "Logika Posisi",
-        question: "Lumba-lumba di kedalaman 8m (-8). Melompat setinggi 12m. Berapa ketinggiannya di atas air?",
-        options: ["4 meter", "20 meter", "8 meter", "12 meter"],
+        topic: "Pembagian Negatif",
+        question: "Hasil dari -48 : (-6 + 2) adalah...",
+        options: ["12", "-12", "8", "-8"],
         correct: 0,
-        explanation: "Posisi awal -8. Naik +12. Posisi akhir = -8 + 12 = 4 meter."
+        explanation: "Kurung dulu: (-6 + 2) = -4. Lalu -48 : (-4) = 12."
     },
     {
         topic: "Operasi Campuran",
-        question: "Hasil dari ( -24 + 56 ) : (-4) - (-12) adalah...",
-        options: ["-20", "4", "20", "-4"],
+        question: "(-20) + 8 x 5 - 18 : (-3) =",
+        options: ["14", "26", "-6", "24"],
         correct: 1,
-        explanation: "32 : (-4) = -8. Lalu -8 - (-12) = -8 + 12 = 4."
+        explanation: "Kali: 8x5=40. Bagi: 18:(-3)=-6. Jadi: -20 + 40 - (-6) = 20 + 6 = 26."
     },
     {
-        topic: "Tebak Bilangan",
-        question: "Aku dikalikan -3, lalu dikurangi 5, hasilnya 10. Siapakah aku?",
-        options: ["-5", "5", "-15", "-2"],
+        topic: "Distributif",
+        question: "(15 x 32) - (15 x 28) = ...",
+        options: ["150", "60", "45", "90"],
+        correct: 1,
+        explanation: "Pakai sifat distributif: 15 x (32 - 28) = 15 x 4 = 60."
+    },
+
+    // --- LEVEL 2: SOAL CERITA SUHU & KEDALAMAN ---
+    {
+        topic: "Suhu Kulkas",
+        question: "Suhu daging -4°C. Saat dimasak, suhu naik 5°C setiap 2 menit. Berapa suhu daging setelah 10 menit?",
+        options: ["20°C", "21°C", "25°C", "19°C"],
+        correct: 1,
+        explanation: "Naik 5x (10 menit : 2). Kenaikan = 5 x 5 = 25°C. Suhu akhir = -4 + 25 = 21°C."
+    },
+    {
+        topic: "Suhu Kota",
+        question: "Suhu Kota A -5°C, Kota B 20°C. Kota C lebih dingin 4°C dari Kota A. Selisih suhu Kota B dan C adalah...",
+        options: ["29°C", "25°C", "15°C", "30°C"],
         correct: 0,
-        explanation: "Mundur: (10 + 5) : -3 = 15 : -3 = -5."
-    },
-    // --- PECAHAN ---
-    {
-        topic: "Pecahan Sisa",
-        question: "Ibu punya kue. 1/3 kasih Andi. 1/4 DARI SISANYA kasih Budi. Sisa kue Ibu berapa?",
-        options: ["5/12", "1/2", "1/4", "3/4"],
-        correct: 1,
-        explanation: "Sisa awal 2/3. Budi dapat 1/4 x 2/3 = 2/12 = 1/6. Sisa akhir = 2/3 - 1/6 = 3/6 = 1/2."
+        explanation: "Suhu C = -5 - 4 = -9°C. Selisih B dan C = 20 - (-9) = 29°C."
     },
     {
-        topic: "Analisis Harta",
-        question: "20% sedekah. Setengah dari sisa ditabung (Rp 2 Juta). Berapa Gaji total?",
-        options: ["Rp 4 Juta", "Rp 5 Juta", "Rp 8 Juta", "Rp 10 Juta"],
-        correct: 1,
-        explanation: "Sisa sedekah 80%. Tabungan = 1/2 x 80% = 40%. Jika 40%=2jt, maka 100%=5jt."
-    },
-    {
-        topic: "Urutan Pecahan",
-        question: "Urutan turun: 0,75 ; 2/3 ; 60% ; 0,8",
-        options: ["0,8 ; 0,75 ; 2/3 ; 60%", "0,8 ; 2/3 ; 0,75 ; 60%", "2/3 ; 0,8 ; 0,75 ; 60%", "0,75 ; 0,8 ; 60% ; 2/3"],
+        topic: "Menyelam",
+        question: "Penyelam berada di kedalaman 15 meter. Ia turun lagi 4 meter, lalu naik 8 meter. Posisi penyelam sekarang di kedalaman...",
+        options: ["11 meter", "19 meter", "3 meter", "7 meter"],
         correct: 0,
-        explanation: "0,8 > 0,75 > 0,66 (2/3) > 0,60."
+        explanation: "Awal -15. Turun (-4) jadi -19. Naik (+8) jadi -11. Kedalaman 11 meter."
     },
     {
-        topic: "Operasi Pecahan",
-        question: "Hasil 2 ½ : 0,5 + 0,75 x 4 =",
-        options: ["5", "6", "8", "7"],
+        topic: "Perubahan Suhu",
+        question: "Suhu segelas teh 45°C. Diberi es batu suhu turun 12°C. Dibiarkan lama suhu naik 3°C. Suhu sekarang?",
+        options: ["30°C", "33°C", "36°C", "39°C"],
         correct: 2,
-        explanation: "2,5 : 0,5 = 5. 0,75 x 4 = 3. Total 5+3=8."
+        explanation: "45 - 12 + 3 = 33 + 3 = 36°C."
     },
     {
-        topic: "Logika Volume",
-        question: "Drum isi 1/4. Tambah 6 liter jadi 1/2. Kapasitas drum?",
-        options: ["12 liter", "18 liter", "24 liter", "30 liter"],
+        topic: "Elevator",
+        question: "Lift dari lantai 8, turun 5 lantai, lalu naik 10 lantai. Sekarang lift ada di lantai...",
+        options: ["12", "13", "10", "3"],
+        correct: 1,
+        explanation: "8 - 5 + 10 = 3 + 10 = 13."
+    },
+
+    // --- LEVEL 3: LOGIKA SKOR & KOMPETISI ---
+    {
+        topic: "Sistem Nilai",
+        question: "Benar(+5), Salah(-2), Kosong(0). Dari 20 soal, Ali Benar 15 dan Salah 3. Sisanya kosong. Skor Ali?",
+        options: ["75", "69", "71", "65"],
+        correct: 1,
+        explanation: "Benar: 15x5=75. Salah: 3x(-2)=-6. Kosong: 2x0=0. Total = 75 - 6 = 69."
+    },
+    {
+        topic: "Liga Sepakbola",
+        question: "Menang(+3), Kalah(-1), Seri(1). Tim Garuda main 5 kali: Menang 3x, Kalah 1x, Seri 1x. Poinnya?",
+        options: ["9", "8", "7", "10"],
+        correct: 0,
+        explanation: "(3x3) + (1x-1) + (1x1) = 9 - 1 + 1 = 9."
+    },
+    {
+        topic: "Lomba Matematika",
+        question: "Skor awal 100. Benar dapat tambahan 10, Salah dikurangi 5. Budi menjawab 4 Benar dan 2 Salah. Skor akhir?",
+        options: ["130", "140", "120", "150"],
+        correct: 0,
+        explanation: "Awal 100. Benar: 4x10=40. Salah: 2x(-5)=-10. Akhir = 100 + 40 - 10 = 130."
+    },
+    {
+        topic: "Selisih Skor",
+        question: "Skor Ani 125. Skor Budi -15. Berapa selisih skor mereka?",
+        options: ["110", "130", "140", "100"],
         correct: 2,
-        explanation: "Beda 1/2 dan 1/4 adalah 1/4 bagian. 1/4 bagian = 6 liter. Penuh = 24 liter."
-    },
-    // --- ANALISIS CERITA ---
-    {
-        topic: "Diskon Bertingkat",
-        question: "Baju 100rb diskon 40% + 10%. Bayar berapa?",
-        options: ["50rb", "54rb", "60rb", "46rb"],
-        correct: 1,
-        explanation: "Diskon I: jadi 60rb. Diskon II: 10% dr 60rb = 6rb. Bayar 54rb."
+        explanation: "Selisih = Nilai Besar - Nilai Kecil. 125 - (-15) = 125 + 15 = 140."
     },
     {
-        topic: "Pecahan Warisan",
-        question: "Warisan 120jt. Sulung 1/3, Kedua 1/4, Sisa Bungsu. Selisih Sulung & Bungsu?",
-        options: ["10 Juta", "20 Juta", "30 Juta", "0 (Sama)"],
+        topic: "Analisis Jawaban",
+        question: "Total 50 soal. Skor total 100. Aturan: Benar(4), Salah(-2). Jika Budi menjawab Benar 30 soal, berapa soal yang dia jawab SALAH? (Tidak ada kosong)",
+        options: ["10", "15", "20", "5"],
         correct: 0,
-        explanation: "Sulung 40jt. Kedua 30jt. Sisa Bungsu 50jt. Selisih 50-40 = 10jt."
+        explanation: "Poin Benar = 30x4 = 120. Skor akhir 100. Berarti poin berkurang 20. Karena Salah(-2), maka Salah = 20:2 = 10 soal."
     },
+
+    // --- LEVEL 4: LOGIKA KEUANGAN & BILANGAN ---
     {
-        topic: "Logika Suhu",
-        question: "Es krim -5°C. Naik 2°C tiap 3 menit. Setelah 15 menit?",
-        options: ["10°C", "5°C", "-3°C", "0°C"],
-        correct: 1,
-        explanation: "Naik 5 kali (15:3). Total naik 10°C. Akhir = -5+10=5."
-    },
-    {
-        topic: "Pecahan Cerita",
-        question: "Baca buku: Hari 1 (1/4), Hari 2 (1/3). Sisa 50 hal. Total halaman?",
-        options: ["100", "120", "150", "200"],
-        correct: 1,
-        explanation: "Sudah baca 7/12. Sisa 5/12. Jika 5/12=50, maka 1/12=10. Total 120."
-    },
-    {
-        topic: "Perbandingan Uang",
-        question: "Ani : Budi = 3 : 5. Selisih 40rb. Jumlah keduanya?",
-        options: ["120rb", "160rb", "200rb", "80rb"],
-        correct: 1,
-        explanation: "Selisih 2 bagian = 40rb -> 1 bagian = 20rb. Jumlah 8 bagian = 160rb."
-    },
-    // --- LOGIKA ALGORITMA ---
-    {
-        topic: "Aljabar",
-        question: "(12 + 8) x (n - 6) = 100. Nilai n?",
-        options: ["10", "11", "5", "12"],
-        correct: 1,
-        explanation: "20 x (n-6) = 100 -> n-6=5 -> n=11."
-    },
-    {
-        topic: "Logika Lift",
-        question: "Lantai 5. Turun 3, Naik 7. Lantai berapa?",
-        options: ["7", "8", "9", "10"],
+        topic: "Hutang Piutang",
+        question: "Pak Budi punya hutang Rp500rb (-500). Ia bayar Rp200rb, lalu hutang lagi Rp100rb. Posisi uang Pak Budi?",
+        options: ["-200", "-300", "-400", "-600"],
         correct: 2,
-        explanation: "5 - 3 + 7 = 9."
+        explanation: "-500 + 200 - 100 = -300 - 100 = -400 (Hutang 400rb)."
     },
     {
-        topic: "Desimal",
-        question: "3/4 + 0,6 - 25% =",
-        options: ["1,1", "1,2", "1,15", "0,9"],
+        topic: "Tebak Angka",
+        question: "Aku bilangan bulat. Jika dikali -4 lalu ditambah 8 hasilnya -12. Bilangan berapakah aku?",
+        options: ["5", "-5", "4", "3"],
         correct: 0,
-        explanation: "0,75 + 0,60 - 0,25 = 1,1."
+        explanation: "Mundur: (-12 - 8) : -4 = -20 : -4 = 5."
     },
     {
-        topic: "Umur",
-        question: "Adik 2/3 Kakak. Jumlah umur 30. Umur Adik?",
-        options: ["10", "12", "15", "18"],
-        correct: 1,
-        explanation: "Rasio 2:3. Jumlah 5 bagian = 30. 1 bagian = 6. Adik (2 bagian) = 12."
-    },
-    {
-        topic: "Hutang",
-        question: "Hutang 500rb. Pinjam lagi 200rb. Bayar 450rb. Sisa?",
-        options: ["Hutang 250rb", "Lunas", "Hutang 150rb", "Hutang 50rb"],
+        topic: "Pedagang Jeruk",
+        question: "Beli 5 keranjang jeruk @ Rp100rb. Dijual rugi Rp10rb per keranjang. Total uang yang didapat pedagang?",
+        options: ["Rp450rb", "Rp400rb", "Rp550rb", "Rp500rb"],
         correct: 0,
-        explanation: "-500 - 200 + 450 = -250."
+        explanation: "Harga jual per keranjang = 100rb - 10rb = 90rb. Total = 5 x 90rb = 450rb."
     },
-    // --- LOGIKA LANJUT ---
     {
-        topic: "Analisis Kerja",
-        question: "Andi 3 jam, Budi 6 jam. Kalau bareng?",
-        options: ["1 jam", "2 jam", "4,5 jam", "9 jam"],
-        correct: 1,
-        explanation: "1/t = 1/3 + 1/6 = 3/6 = 1/2. t = 2 jam."
+        topic: "Suhu Ekstrem",
+        question: "Suhu udara siang 30°C. Malam hari turun drastis menjadi -5°C. Besar perubahan suhu tersebut adalah...",
+        options: ["25°C", "30°C", "35°C", "5°C"],
+        correct: 2,
+        explanation: "Perubahan = Jarak dari 30 ke -5. 30 - (-5) = 35°C."
+    },
+    {
+        topic: "Permainan Kelereng",
+        question: "Awal punya 50. Kalah 20 (-20), Menang 15 (+15), Kalah lagi 10 (-10). Sisa kelereng?",
+        options: ["35", "45", "25", "55"],
+        correct: 0,
+        explanation: "50 - 20 + 15 - 10 = 30 + 15 - 10 = 45 - 10 = 35."
+    },
+
+    // --- LEVEL 5: OPERASI CAMPURAN KOMPLEKS (HOTS) ---
+    {
+        topic: "Operasi Kurung",
+        question: "Hasil dari 100 : (-20 + 15) x (-4) adalah...",
+        options: ["80", "-80", "20", "-20"],
+        correct: 0,
+        explanation: "Kurung: (-20+15) = -5. Bagi: 100 : -5 = -20. Kali: -20 x -4 = 80."
+    },
+    {
+        topic: "Substitusi Aljabar",
+        question: "Jika a = -3, b = 2, c = -5. Nilai dari (a x b) - c adalah...",
+        options: ["-1", "-11", "1", "11"],
+        correct: 0,
+        explanation: "(-3 x 2) - (-5) = -6 + 5 = -1."
     },
     {
         topic: "Pola Bilangan",
-        question: "1 - 2 + 3 - 4 + ... + 19 - 20 =",
-        options: ["-10", "-20", "10", "0"],
+        question: "Hitunglah: -1 + 2 - 3 + 4 - 5 + 6 ... - 19 + 20",
+        options: ["10", "-10", "20", "0"],
         correct: 0,
-        explanation: "Ada 10 pasang angka -1. Hasil -10."
+        explanation: "Setiap pasang (-1+2)=1. Ada 20 angka berarti 10 pasang. 10 x 1 = 10."
     },
     {
-        topic: "Pecahan Terapan",
-        question: "5 ½ liter dibagi ke gelas 1/4 liter. Butuh berapa gelas?",
-        options: ["20", "21", "22", "24"],
-        correct: 2,
-        explanation: "5,5 : 0,25 = 22."
-    },
-    {
-        topic: "Sifat Bilangan",
-        question: "(25 x 13) - (25 x 9) =",
-        options: ["50", "75", "100", "125"],
-        correct: 2,
-        explanation: "25 x (13-9) = 25 x 4 = 100."
-    },
-    {
-        topic: "Sisa Bagi",
-        question: "Bilangan dibagi 5 sisa 3, dibagi 7 sisa 5. Terkecil?",
-        options: ["33", "38", "43", "53"],
+        topic: "Kuadrat & Kubik",
+        question: "Hasil dari (-4)³ + (-2)² adalah...",
+        options: ["-60", "-68", "60", "68"],
         correct: 0,
-        explanation: "33 bagi 5 sisa 3. 33 bagi 7 sisa 5. Benar."
+        explanation: "(-4)³ = -64. (-2)² = 4. Jadi -64 + 4 = -60."
+    },
+    {
+        topic: "Logika Tangga",
+        question: "Anak tangga ke-5. Naik 3, Turun 6, Naik 2. Posisi sekarang di anak tangga ke...",
+        options: ["3", "4", "5", "6"],
+        correct: 1,
+        explanation: "5 + 3 - 6 + 2 = 8 - 6 + 2 = 2 + 2 = 4."
     }
 ];
 
 // ==========================================
-// 2. LOGIKA PROGRAM (RANK & EMOTICON)
+// 3. LOGIKA PROGRAM UTAMA (JANGAN DIUBAH)
 // ==========================================
 let currentQuestionIndex = 0;
 let score = 0;
@@ -208,7 +218,7 @@ function startQuizInput() {
     studentClass = document.getElementById('student-class').value;
 
     if (studentName === "" || studentClass === "") {
-        alert("Waduh, Nama sama Kelas jangan kosong dong Boss! 😅");
+        alert("Nama dan Kelas wajib diisi dulu ya! 😊");
         return;
     }
 
@@ -266,7 +276,7 @@ function checkAnswer(selectedIndex, btnElement) {
     } else {
         btnElement.style.backgroundColor = '#f8d7da';
         btnElement.style.borderColor = '#842029';
-        document.getElementById('feedback-title').innerText = "❌ Yah Salah...";
+        document.getElementById('feedback-title').innerText = "❌ Kurang Tepat...";
         document.getElementById('feedback-area').className = "feedback wrong";
         
         allButtons[currentQ.correct].style.backgroundColor = '#d1e7dd';
@@ -281,7 +291,7 @@ function checkAnswer(selectedIndex, btnElement) {
     if (currentQuestionIndex < questions.length - 1) {
         nextBtn.innerText = "Lanjut ➡️";
     } else {
-        nextBtn.innerText = "Lihat Vonis Akhir 😱";
+        nextBtn.innerText = "Lihat Hasil Akhir 🏁";
     }
     nextBtn.style.display = 'inline-block';
 }
@@ -308,62 +318,56 @@ function showResult() {
 
     const rankTitle = document.getElementById('rank-title');
     
-    if (score >= 15) {
+    // Logika Rank
+    if (score >= 20) {
         rankTitle.innerHTML = "AMPUN SUHU! 🙏🥶";
         rankTitle.style.background = "-webkit-linear-gradient(#00c6ff, #0072ff)";
         rankTitle.style.webkitBackgroundClip = "text";
         rankTitle.style.webkitTextFillColor = "transparent";
-    } else if (score >= 10) {
+    } else if (score >= 15) {
         rankTitle.innerHTML = "KEREN BOSS! 😎🔥";
         rankTitle.style.background = "-webkit-linear-gradient(#f7971e, #ffd200)";
         rankTitle.style.webkitBackgroundClip = "text";
         rankTitle.style.webkitTextFillColor = "transparent";
     } else {
-        rankTitle.innerHTML = "WADUH, SKILL ISSUE? 🗿🤣";
+        rankTitle.innerHTML = "BELAJAR LAGI BANG 🗿🤣";
         rankTitle.style.background = "-webkit-linear-gradient(#ee0979, #ff6a00)";
         rankTitle.style.webkitBackgroundClip = "text";
         rankTitle.style.webkitTextFillColor = "transparent";
     }
 
-    generateWeaknessReport(score);
+    generateWeaknessReport(finalScore);
+    
+    // KIRIM EMAIL OTOMATIS
+    sendToTeacher(finalScore);
 }
 
 function generateWeaknessReport(finalScoreVal) {
     const recText = document.getElementById('recommendation-text');
-    
     let weakAreas = Object.keys(wrongTopics).sort((a,b) => wrongTopics[b] - wrongTopics[a]);
     let message = "";
     
-    if (finalScoreVal === questions.length) {
-        message = "<p>Gak ada obat! Bener semua. Kamu valid jadi asisten Mr. Heru. 🌟</p>";
+    if (finalScoreVal === 100) {
+        message = "<p>Gak ada obat! Bener semua. 🌟</p>";
     } else if (weakAreas.length > 0) {
         let topWeakness = weakAreas.slice(0, 3);
-        message += "<p>Hati-hati, kamu sering 'kepeleset' di materi ini nih:</p>";
-        message += "<ul class='weakness-list'>";
+        message += "<p>Hati-hati, sering salah di sini:</p><ul class='weakness-list'>";
         topWeakness.forEach(topic => {
-            message += `<li>⚠️ ${topic} (Salah ${wrongTopics[topic]} kali)</li>`;
+            message += `<li>⚠️ ${topic}</li>`;
         });
         message += "</ul>";
-        message += "<p>Coba pelajari lagi konsep di atas ya!</p>";
     } else {
-        message = "<p>Hasil kamu lumayan, tingkatkan lagi ketelitiannya!</p>";
+        message = "<p>Tingkatkan lagi ketelitiannya!</p>";
     }
-
-    if (finalScoreVal < 10) {
-        message += "<p style='margin-top:10px; font-style:italic;'><strong>Note:</strong> Jangan login doang bang, belajar lagi gih! 🤣</p>";
-    }
-
     recText.innerHTML = message;
 }
 
 function downloadCSV() {
     const finalScore = Math.round((score / questions.length) * 100);
     const date = new Date().toLocaleDateString();
-    
     let csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "Tanggal,Nama Siswa,Kelas,Nilai Akhir,Benar,Salah\n";
     csvContent += `${date},${studentName},${studentClass},${finalScore},${score},${questions.length - score}\n`;
-
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
@@ -371,6 +375,32 @@ function downloadCSV() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+function sendToTeacher(finalScore) {
+    if (FORMSPREE_URL === "MASUKKAN_LINK_FORMSPREE_DISINI") {
+        console.log("Email guru belum disetting.");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("nama", studentName);
+    formData.append("kelas", studentClass);
+    formData.append("nilai", finalScore);
+    formData.append("benar", score);
+    formData.append("pesan", "Laporan Otomatis TKA Matematika (Bilangan Bulat)");
+
+    fetch(FORMSPREE_URL, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            alert("Laporan nilai berhasil terkirim ke Mr. Heru! ✅");
+        }
+    }).catch(error => {
+        console.log("Error kirim email: " + error);
+    });
 }
 
 function restartQuiz() {

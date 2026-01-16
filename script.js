@@ -4,194 +4,198 @@
 const FORMSPREE_URL = "MASUKKAN_LINK_FORMSPREE_DISINI"; 
 
 // ==========================================
-// 2. DATABASE 25 SOAL (CAMPURAN PECAHAN, DESIMAL, PERSEN)
+// 2. DATABASE 25 SOAL CERITA HOTS (PANGKAT & AKAR)
 // ==========================================
 const questions = [
-    // --- LEVEL 1: PECAHAN & DESIMAL DASAR ---
+    // --- LEVEL 1: KONSEP PERTUMBUHAN (PANGKAT) ---
     {
-        topic: "Pecahan ke Desimal",
-        question: "0,75 + 1/2 - 0,25 = ...",
-        options: ["1,0", "0,5", "1,5", "0,75"],
-        correct: 0,
-        explanation: "1/2 = 0,5. Jadi: 0,75 + 0,5 - 0,25 = 1,25 - 0,25 = 1,0."
-    },
-    {
-        topic: "Persen & Pecahan",
-        question: "50% - 1/4 + 0,1 = ...",
-        options: ["0,35", "0,25", "0,45", "0,15"],
-        correct: 0,
-        explanation: "50% = 0,5. 1/4 = 0,25. Jadi: 0,5 - 0,25 + 0,1 = 0,25 + 0,1 = 0,35."
-    },
-    {
-        topic: "Perkalian Campuran",
-        question: "2/5 x 0,5 = ...",
-        options: ["0,2", "0,5", "0,1", "1,0"],
-        correct: 0,
-        explanation: "2/5 = 0,4. Jadi 0,4 x 0,5 = 0,20 atau 0,2."
-    },
-    {
-        topic: "Pembagian Desimal",
-        question: "1,2 : 1/2 = ...",
-        options: ["0,6", "2,4", "1,4", "2,2"],
+        topic: "Pertumbuhan Bakteri",
+        question: "Sebuah bakteri membelah diri menjadi 2 setiap 15 menit. Jika mula-mula ada 1 bakteri, berapa banyak bakteri setelah 1 jam?",
+        options: ["8", "16", "32", "64"],
         correct: 1,
-        explanation: "Membagi dengan 1/2 sama dengan dikali 2. 1,2 x 2 = 2,4."
+        explanation: "1 jam = 60 menit. Membelah 4 kali (60:15). Rumus: 2 pangkat 4 = 16."
     },
     {
-        topic: "Operasi Tanda Negatif",
-        question: "-0,5 + 3/4 = ...",
-        options: ["-0,25", "0,25", "0,5", "-0,5"],
-        correct: 1,
-        explanation: "-0,5 + 0,75 = 0,25."
-    },
-
-    // --- LEVEL 2: OPERASI CAMPURAN (KABATAKU) ---
-    {
-        topic: "Prioritas Perkalian",
-        question: "0,5 + 2 x 1/4 = ...",
-        options: ["0,625", "1,0", "1,5", "2,0"],
-        correct: 1,
-        explanation: "Kali dulu: 2 x 0,25 = 0,5. Lalu 0,5 + 0,5 = 1,0."
-    },
-    {
-        topic: "Persen Perkalian",
-        question: "25% x 80 - 0,5 = ...",
-        options: ["15,5", "19,5", "20,5", "20"],
-        correct: 1,
-        explanation: "25% x 80 = 20. Lalu 20 - 0,5 = 19,5."
-    },
-    {
-        topic: "Pecahan Campuran",
-        question: "1 ½ + 0,5 x 4 = ...",
-        options: ["8", "3,5", "4,5", "6"],
-        correct: 1,
-        explanation: "Kali dulu: 0,5 x 4 = 2. Lalu 1,5 + 2 = 3,5."
-    },
-    {
-        topic: "Pembagian & Persen",
-        question: "40% : 0,1 + 2 = ...",
-        options: ["6", "4,2", "60", "2,4"],
-        correct: 0,
-        explanation: "0,4 : 0,1 = 4. Lalu 4 + 2 = 6."
-    },
-    {
-        topic: "Kombinasi Tanda",
-        question: "-1/2 + 0,2 x (-5) = ...",
-        options: ["-1,5", "-0,5", "-1,0", "0,5"],
-        correct: 0,
-        explanation: "Kali dulu: 0,2 x -5 = -1. Lalu -0,5 + (-1) = -1,5."
-    },
-
-    // --- LEVEL 3: PECAHAN DESIMAL KOMPLEKS ---
-    {
-        topic: "Tiga Bilangan",
-        question: "3/4 + 0,6 - 25% = ...",
-        options: ["1,1", "1,2", "0,9", "1,15"],
-        correct: 0,
-        explanation: "0,75 + 0,6 - 0,25 = 1,35 - 0,25 = 1,1."
-    },
-    {
-        topic: "Operasi Kurung",
-        question: "(1 - 0,2) : 1/5 = ...",
-        options: ["4", "0,16", "5", "0,8"],
-        correct: 0,
-        explanation: "Kurung: 0,8. Lalu 0,8 : 0,2 = 4."
-    },
-    {
-        topic: "Pecahan Campuran Kali",
-        question: "2 ¼ x 0,8 = ...",
-        options: ["1,6", "1,8", "2,0", "1,2"],
-        correct: 1,
-        explanation: "2,25 x 0,8 = 1,8."
-    },
-    {
-        topic: "Pengurangan Persen",
-        question: "2 - 150% + 0,5 = ...",
-        options: ["0", "1,0", "1,5", "-0,5"],
-        correct: 1,
-        explanation: "150% = 1,5. Jadi 2 - 1,5 + 0,5 = 0,5 + 0,5 = 1,0."
-    },
-    {
-        topic: "Kombinasi Bagi",
-        question: "0,75 : 3/4 + 0,5 = ...",
-        options: ["1,0", "1,25", "1,5", "0,75"],
+        topic: "Lipatan Kertas",
+        question: "Selembar kertas tebalnya 0,1 mm. Jika dilipat menjadi dua bagian sebanyak 5 kali, berapa lapis kertas yang terbentuk?",
+        options: ["10", "25", "32", "64"],
         correct: 2,
-        explanation: "0,75 : 0,75 = 1. Lalu 1 + 0,5 = 1,5."
-    },
-
-    // --- LEVEL 4: LOGIKA & HITUNGAN CEPAT ---
-    {
-        topic: "Hitung Cepat",
-        question: "12,5% x 800 + 1/2 = ...",
-        options: ["100,5", "100", "50,5", "101"],
-        correct: 0,
-        explanation: "12,5% x 800 = 100. Lalu 100 + 0,5 = 100,5."
+        explanation: "Lipatan ke-1 = 2 lapis. Lipatan ke-5 = 2 pangkat 5 = 32 lapis."
     },
     {
-        topic: "Pecahan Negatif",
-        question: "-2,5 - 1 ½ x 2 = ...",
-        options: ["-5,5", "-4,5", "-8", "-3"],
-        correct: 0,
-        explanation: "Kali dulu: 1,5 x 2 = 3. Jadi -2,5 - 3 = -5,5."
-    },
-    {
-        topic: "Rantai Desimal",
-        question: "0,1 x 0,1 + 0,99 = ...",
-        options: ["1,0", "0,1", "1,1", "1,01"],
-        correct: 0,
-        explanation: "0,01 + 0,99 = 1,0."
-    },
-    {
-        topic: "Pembagian Pecahan",
-        question: "5 : 1/3 - 10 = ...",
-        options: ["5", "-5", "15", "-8,3"],
-        correct: 0,
-        explanation: "5 : 1/3 = 15. Lalu 15 - 10 = 5."
-    },
-    {
-        topic: "Kombinasi Persen",
-        question: "(50% + 0,5) x 10 = ...",
-        options: ["10", "5,5", "1", "100"],
-        correct: 0,
-        explanation: "(0,5 + 0,5) x 10 = 1 x 10 = 10."
-    },
-
-    // --- LEVEL 5: CHALLENGE (HOTS NUMERIK) ---
-    {
-        topic: "Challenge 1",
-        question: "1 - 1/2 - 1/4 - 1/8 = ...",
-        options: ["0", "1/8", "1/16", "1/4"],
+        topic: "Virus Komputer",
+        question: "Sebuah virus komputer menulari 3 komputer setiap menit. Menit pertama 3, menit kedua 9 (3²), menit ketiga 27 (3³). Berapa komputer tertular pada menit ke-5?",
+        options: ["81", "243", "125", "729"],
         correct: 1,
-        explanation: "Samakan penyebut 8. 8/8 - 4/8 - 2/8 - 1/8 = 1/8."
+        explanation: "Pola bilangan pangkat 3. Menit ke-5 = 3 pangkat 5 = 243."
     },
     {
-        topic: "Challenge 2",
-        question: "(-4)² x 0,5 - 10 = ...",
-        options: ["-2", "2", "6", "-6"],
-        correct: 0,
-        explanation: "16 x 0,5 = 8. Lalu 8 - 10 = -2."
+        topic: "Menabung",
+        question: "Uang Budi menjadi 2 kali lipat setiap tahun. Jika tahun ini uangnya Rp 1 Juta (anggap 2 pangkat 0 juta), berapa uangnya 4 tahun lagi?",
+        options: ["Rp 4 Juta", "Rp 8 Juta", "Rp 16 Juta", "Rp 32 Juta"],
+        correct: 2,
+        explanation: "4 tahun lagi = 2 pangkat 4 x 1 Juta = 16 Juta."
     },
     {
-        topic: "Challenge 3",
-        question: "10 : 0,25 + (-30) = ...",
-        options: ["10", "70", "0", "-10"],
-        correct: 0,
-        explanation: "10 : 1/4 = 40. Lalu 40 - 30 = 10."
+        topic: "Pohon Faktor",
+        question: "Setiap dahan pohon bercabang menjadi 4 ranting baru. Jika ada 3 tahapan percabangan, berapa jumlah ranting di ujung paling akhir?",
+        options: ["12", "64", "256", "81"],
+        correct: 1,
+        explanation: "4 pangkat 3 = 4 x 4 x 4 = 64."
+    },
+
+    // --- LEVEL 2: LUAS & KELILING (AKAR KUADRAT) ---
+    {
+        topic: "Kebun Persegi",
+        question: "Pak Heru punya kebun berbentuk persegi dengan luas 144 m². Ia ingin memagari kebun tersebut. Berapa panjang pagar yang dibutuhkan?",
+        options: ["12 m", "24 m", "36 m", "48 m"],
+        correct: 3,
+        explanation: "Sisi = akar(144) = 12m. Keliling (Pagar) = 4 x 12m = 48m."
     },
     {
-        topic: "Challenge 4",
-        question: "3/5 + 60% x 2 - 1 = ...",
-        options: ["0,8", "1,2", "0,2", "1,6"],
+        topic: "Ubin Lantai",
+        question: "Lantai kamar mandi luasnya 4 m². Akan dipasang ubin persegi berukuran 20cm x 20cm. Berapa banyak ubin yang diperlukan?",
+        options: ["100", "200", "400", "20"],
         correct: 0,
-        explanation: "0,6 + (0,6 x 2) - 1 = 0,6 + 1,2 - 1 = 1,8 - 1 = 0,8."
+        explanation: "Luas lantai = 40.000 cm². Luas 1 ubin = 400 cm². Jumlah = 40.000 : 400 = 100 ubin."
     },
     {
-        topic: "Challenge 5",
-        question: "Hasil dari (0,2)³ + 0,002 = ...",
-        options: ["0,01", "0,082", "0,008", "0,006"],
+        topic: "Taplak Meja",
+        question: "Ibu menjahit taplak meja persegi seluas 2.500 cm². Di sekelilingnya akan dipasang renda. Panjang renda minimal adalah...",
+        options: ["50 cm", "100 cm", "200 cm", "250 cm"],
+        correct: 2,
+        explanation: "Sisi = akar(2500) = 50 cm. Keliling = 4 x 50 = 200 cm."
+    },
+    {
+        topic: "Lapangan Rumput",
+        question: "Sebuah lapangan persegi luasnya 196 m². Jika Budi berlari mengelilingi lapangan sebanyak 2 putaran, berapa jarak tempuhnya?",
+        options: ["56 m", "112 m", "28 m", "98 m"],
+        correct: 1,
+        explanation: "Sisi = akar(196) = 14m. Keliling = 14x4 = 56m. Dua putaran = 56 x 2 = 112m."
+    },
+    {
+        topic: "Perbandingan Luas",
+        question: "Persegi A luasnya 16 cm². Persegi B sisinya 3 kali sisi Persegi A. Berapa luas Persegi B?",
+        options: ["48 cm²", "144 cm²", "36 cm²", "128 cm²"],
+        correct: 1,
+        explanation: "Sisi A = akar(16) = 4. Sisi B = 3x4 = 12. Luas B = 12 x 12 = 144."
+    },
+
+    // --- LEVEL 3: VOLUME & KUBUS (PANGKAT 3 & AKAR 3) ---
+    {
+        topic: "Bak Mandi",
+        question: "Bak mandi berbentuk kubus mampu menampung 512 liter air hingga penuh. Berapa kedalaman (tinggi) bak mandi tersebut?",
+        options: ["6 dm", "7 dm", "8 dm", "9 dm"],
+        correct: 2,
+        explanation: "512 liter = 512 dm³. Rusuk = akar pangkat 3 dari 512 = 8 dm."
+    },
+    {
+        topic: "Kado Ulang Tahun",
+        question: "Sebuah kotak kado kubus volumenya 3.375 cm³. Berapa panjang pita yang dibutuhkan untuk menghias sekeliling satu sisi tutupnya saja?",
+        options: ["15 cm", "45 cm", "60 cm", "30 cm"],
+        correct: 2,
+        explanation: "Rusuk = akar3(3375) = 15 cm. Keliling tutup (persegi) = 4 x 15 = 60 cm."
+    },
+    {
+        topic: "Rubik Raksasa",
+        question: "Sebuah kotak besar berisi tumpukan rubik kecil. Kotak itu berbentuk kubus dengan volume 8.000 cm³. Jika volume satu rubik kecil 8 cm³, berapa banyak rubik dalam kotak?",
+        options: ["100", "1000", "10", "500"],
+        correct: 1,
+        explanation: "Jumlah = Volume Besar : Volume Kecil. 8000 : 8 = 1000 rubik."
+    },
+    {
+        topic: "Kolam Ikan",
+        question: "Kolam kubus volumenya 1.000 liter. Jika air dikuras hingga tinggal setengahnya, tinggi air sekarang adalah...",
+        options: ["10 dm", "5 dm", "2,5 dm", "50 cm"],
+        correct: 1,
+        explanation: "Rusuk kolam = akar3(1000) = 10 dm. Jika air setengah, tingginya jadi setengah = 5 dm."
+    },
+    {
+        topic: "Pengiriman Paket",
+        question: "Truk box membawa kardus berbentuk kubus dengan rusuk 50 cm. Volume total ruang kargo truk adalah 125.000.000 cm³. Berapa kardus maksimal yang bisa masuk?",
+        options: ["100", "500", "1000", "1250"],
+        correct: 2,
+        explanation: "Volume 1 kardus = 50³ = 125.000. Jumlah = 125 juta : 125 ribu = 1000 kardus."
+    },
+
+    // --- LEVEL 4: PHYTHAGORAS & ANALISIS (AKAR LANJUT) ---
+    {
+        topic: "Tangga Bersandar",
+        question: "Sebuah tangga panjangnya 5 meter disandarkan ke tembok. Jarak kaki tangga ke tembok 3 meter. Berapa tinggi tembok yang dicapai ujung tangga?",
+        options: ["2 m", "3 m", "4 m", "5 m"],
+        correct: 2,
+        explanation: "Pythagoras: Tinggi = akar(5² - 3²) = akar(25 - 9) = akar(16) = 4 meter."
+    },
+    {
+        topic: "Kapal Berlayar",
+        question: "Kapal berlayar ke Utara 8 km, lalu belok ke Timur 6 km. Jarak terpendek kapal dari titik keberangkatan adalah...",
+        options: ["10 km", "14 km", "12 km", "100 km"],
         correct: 0,
-        explanation: "0,008 + 0,002 = 0,010 atau 0,01."
+        explanation: "Sisi miring = akar(8² + 6²) = akar(64+36) = akar(100) = 10 km."
+    },
+    {
+        topic: "Layang-layang",
+        question: "Anak bermain layangan dengan benang sepanjang 13 meter. Jarak anak ke titik tepat di bawah layangan 5 meter. Berapa tinggi layangan?",
+        options: ["8 m", "10 m", "12 m", "18 m"],
+        correct: 2,
+        explanation: "Tinggi = akar(13² - 5²) = akar(169 - 25) = akar(144) = 12 meter."
+    },
+    {
+        topic: "Jalan Pintas",
+        question: "Taman berbentuk persegi panjang 60m x 80m. Budi berjalan memotong diagonal taman. Berapa jarak yang ditempuh Budi?",
+        options: ["100 m", "140 m", "120 m", "200 m"],
+        correct: 0,
+        explanation: "Diagonal = akar(60² + 80²) = akar(3600+6400) = akar(10000) = 100m."
+    },
+    {
+        topic: "Tiang Bendera",
+        question: "Kawat penyangga tiang dipasang dari puncak tiang ke tanah. Tinggi tiang 12m, jarak patok ke tiang 5m. Panjang kawat minimal?",
+        options: ["13 m", "15 m", "17 m", "11 m"],
+        correct: 0,
+        explanation: "Miring = akar(12² + 5²) = akar(144+25) = akar(169) = 13 m."
+    },
+
+    // --- LEVEL 5: HITUNGAN NOTASI ILMIAH & ANALISIS ---
+    {
+        topic: "Kecepatan Cahaya",
+        question: "Cahaya bergerak 3 x 10^8 m/detik. Berapa jarak tempuh cahaya dalam 2 detik?",
+        options: ["6 x 10^8 m", "5 x 10^8 m", "9 x 10^8 m", "6 x 10^16 m"],
+        correct: 0,
+        explanation: "Jarak = Kecepatan x Waktu = (3 x 10^8) x 2 = 6 x 10^8 meter."
+    },
+    {
+        topic: "Jarak Bumi-Bulan",
+        question: "Jarak Bumi ke Bulan kira-kira 3,84 x 10^5 km. Jika ditulis dalam bentuk biasa (bukan pangkat), jaraknya adalah...",
+        options: ["38.400 km", "384.000 km", "3.840.000 km", "384 km"],
+        correct: 1,
+        explanation: "10^5 berarti geser koma 5 kali ke kanan. 3,84 -> 384.000."
+    },
+    {
+        topic: "Bakteri Mikroskopis",
+        question: "Panjang bakteri 2 x 10^-6 meter. Jika ada 1000 bakteri berjajar memanjang, berapa panjang totalnya?",
+        options: ["2 x 10^-3 m", "2 x 10^-9 m", "2 x 10^-4 m", "2 mm"],
+        correct: 0,
+        explanation: "(2 x 10^-6) x 10^3 = 2 x 10^(-6+3) = 2 x 10^-3 meter (atau 2 milimeter)."
+    },
+    {
+        topic: "Gaya Gravitasi",
+        question: "Massa Planet A adalah 5 x 10^24 kg. Massa Planet B adalah 2 x 10^24 kg. Berapa total massa kedua planet?",
+        options: ["7 x 10^24 kg", "10 x 10^48 kg", "7 x 10^48 kg", "3 x 10^24 kg"],
+        correct: 0,
+        explanation: "Karena pangkatnya sama, cukup jumlahkan depannya: (5+2) x 10^24 = 7 x 10^24 kg."
+    },
+    {
+        topic: "Analisis Pangkat",
+        question: "Manakah yang nilainya paling besar? A=2^5, B=5^2, C=3^3, D=4^2",
+        options: ["A", "B", "C", "D"],
+        correct: 2,
+        explanation: "A=32, B=25, C=27, D=16. Maaf, A=32 paling besar. Kunci jawaban: A (Opsi 0)."
     }
 ];
+
+// KOREKSI MANUAL KUNCI JAWABAN NO 25
+questions[24].correct = 0; // Opsi A (2^5 = 32) adalah yang terbesar dibanding 25, 27, 16.
+
 
 // ==========================================
 // 3. LOGIKA PROGRAM UTAMA (JANGAN DIUBAH)
@@ -387,7 +391,7 @@ function sendToTeacher(finalScore) {
     formData.append("kelas", studentClass);
     formData.append("nilai", finalScore);
     formData.append("benar", score);
-    formData.append("pesan", "Laporan Otomatis TKA Matematika (Mixed Numbers)");
+    formData.append("pesan", "Laporan Otomatis TKA (Pangkat & Akar)");
 
     fetch(FORMSPREE_URL, {
         method: "POST",
